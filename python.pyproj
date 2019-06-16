@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8c837a2e-4630-422e-b69c-f1a9d911eb85}</ProjectGuid>
+    <ProjectHome />
+    <StartupFile />
+    <SearchPath />
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <ProjectTypeGuids>{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
+    <LaunchProvider>Standard Python launcher</LaunchProvider>
+    <InterpreterId>Global|PythonCore|3.7</InterpreterId>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition=" '$(VisualStudioVersion)' == '' ">10.0</VisualStudioVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="anagram\anagram.py" />
+    <Compile Include="anagram\anagram_test.py" />
+    <Compile Include="difference-of-squares\difference_of_squares.py" />
+    <Compile Include="difference-of-squares\difference_of_squares_test.py" />
+    <Compile Include="hamming\hamming.py" />
+    <Compile Include="hamming\hamming_test.py" />
+    <Compile Include="hello-world\hello_world.py" />
+    <Compile Include="hello-world\hello_world_test.py" />
+    <Compile Include="high-scores\high_scores.py" />
+    <Compile Include="high-scores\high_scores_old.py" />
+    <Compile Include="high-scores\high_scores_test.py" />
+    <Compile Include="isbn-verifier\isbn_verifier.py" />
+    <Compile Include="isbn-verifier\isbn_verifier_test.py" />
+    <Compile Include="leap\leap.py" />
+    <Compile Include="leap\leap_test.py" />
+    <Compile Include="matrix\matrix.py" />
+    <Compile Include="matrix\matrix_test.py" />
+    <Compile Include="pangram\pangram.py" />
+    <Compile Include="pangram\pangram_test.py" />
+    <Compile Include="protein-translation\protein_translation.py" />
+    <Compile Include="protein-translation\protein_translation_old.py" />
+    <Compile Include="protein-translation\protein_translation_test.py" />
+    <Compile Include="robot-name\robot_name.py" />
+    <Compile Include="robot-name\robot_name_test.py" />
+    <Compile Include="triangle\triangle.py" />
+    <Compile Include="triangle\triangle_test.py" />
+    <Compile Include="two-fer\two_fer.py" />
+    <Compile Include="two-fer\two_fer_old.py" />
+    <Compile Include="two-fer\two_fer_test.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="anagram" />
+    <Folder Include="difference-of-squares" />
+    <Folder Include="hamming" />
+    <Folder Include="hello-world" />
+    <Folder Include="high-scores" />
+    <Folder Include="isbn-verifier" />
+    <Folder Include="leap" />
+    <Folder Include="matrix" />
+    <Folder Include="pangram" />
+    <Folder Include="protein-translation" />
+    <Folder Include="robot-name" />
+    <Folder Include="triangle" />
+    <Folder Include="two-fer" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterpreterReference Include="Global|PythonCore|3.7" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
+</Project>
