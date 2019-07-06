@@ -1,44 +1,39 @@
 def saddle_points(matrix):
+    if matrix == []:
+        return [{}]
     #Vars
-    points = {}
-
-
-
-class Matrix(object):
-    #?
-    def __init__(self, matrix_string):
-        #Class variables
-        self.matrix = []
-        self.matrix_rows = {}
-        self.matrix_columns = {}
-
-        self.matrix = matrix_string.split('\n')
-        i = 1
-        j = 1
-        for row in self.matrix:
-            if i <= len(self.matrix): 
-                self.matrix_rows[i] = self.get_row(i, self.matrix)
-                i = i + 1
-            if j <= len(self.matrix[0].split(' ')):
-                self.matrix_columns[j] = self.get_column(j, self.matrix)
-                j = j + 1
-
-    def row(self, index):
-        return self.matrix_rows[index]
-
-    def column(self, index):
-        return self.matrix_columns[index]
-
-    def get_column(self, index, splitmatrix):
-        column = []
-        for row in splitmatrix:
-            column = column + [int(row.split(' ')[index - 1])]
-        return column
+    points = []
+    position = {}
+    columns = {}
+    rows = {}
+    lenrow = len(matrix[0])
     
-    def get_row(self, index, splitmatrix):
-        row = []
-        for value in splitmatrix[index - 1].split(' '):
-            row = row + [int(value)]
-        return row
+    for row in matrix:
+        if len(row) != lenrow:
+            raise ValueError ("Invalid matrix")
     
+    for row in matrix:
+        for element in row:
+            try:
+                columns[row.index(element)]= columns[row.index(element)] + [element]
+            except:
+                columns[row.index(element)]= [element]
+                
+    for count, row in enumerate(matrix):
+        rows[count]= row
+            
+    for count_row, row in enumerate(rows):
+        for count_column, element in enumerate(rows[row]):
+            if element == max(rows[row]):
+                if element == min(columns[count_column]):
+                    position["row"]= count_row + 1
+                    position["column"]= count_column + 1
+                    points.append(position)
+                    
+    if points == []:
+        return [{}]
+    return points
+                
+
+
 
