@@ -13,11 +13,11 @@ def saddle_points(matrix):
             raise ValueError ("Invalid matrix")
     
     for row in matrix:
-        for element in row:
+        for count_it, element in enumerate(row):
             try:
-                columns[row.index(element)]= columns[row.index(element)] + [element]
+                columns[count_it]= columns[count_it] + [element]
             except:
-                columns[row.index(element)]= [element]
+                columns[count_it]= [element]
                 
     for count, row in enumerate(matrix):
         rows[count]= row

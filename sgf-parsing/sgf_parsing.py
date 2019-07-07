@@ -26,10 +26,5 @@ class SgfTree(object):
 
 
 def parse(input_string):
-    if not re.match('\(;(.*)+\)', input_string):
-        raise ValueError(input_string + ' does not match regex')
-        
-    # use this to preremove initial () and ;
-    # (;a[b]a[c](;a[b])) -> a[b]a[c](;a[b])
-    return SgfTree(string = input_string[2:-1])
+
 
