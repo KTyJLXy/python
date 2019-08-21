@@ -1,39 +1,34 @@
-def saddle_points(matrix):
-    if matrix == []:
-        return [{}]
-    #Vars
-    points = []
-    position = {}
-    columns = {}
-    rows = {}
-    lenrow = len(matrix[0])
-    
-    for row in matrix:
-        if len(row) != lenrow:
-            raise ValueError ("Invalid matrix")
-    
-    for row in matrix:
-        for count_it, element in enumerate(row):
-            try:
-                columns[count_it]= columns[count_it] + [element]
-            except:
-                columns[count_it]= [element]
-                
-    for count, row in enumerate(matrix):
-        rows[count]= row
-            
-    for count_row, row in enumerate(rows):
-        for count_column, element in enumerate(rows[row]):
-            if element == max(rows[row]):
-                if element == min(columns[count_column]):
-                    position["row"]= count_row + 1
-                    position["column"]= count_column + 1
-                    points.append(position)
-                    
-    if points == []:
-        return [{}]
-    return points
-                
+class SaddlePoints:
+    def __init__(self, matrix):
+        self.matrix = matrix
+        self.columns = list(zip(*self.matrix))
+ 
+    def get_saddle_points(self):
+        if self.invalid_matrix():
+            raise ValueError('Matrix has rows of unequal length')
+        return self.saddle_points()
+ 
+    def saddle_points(self):
+        saddle_points = set()
+        for row in range(len(self.matrix)):
+            for col in range(len(self.matrix[row])):
+                if self.saddle_point(row, col):
+                    saddle_points.add((row + 1, col + 1))
+        return saddle_points
+ 
+    def saddle_point(self, row, col):
 
+        return (self.matrix[row][col] == max(self.matrix[row]) and
 
+                self.matrix[row][col] == min(self.columns[col]))
+ 
+    def invalid_matrix(self):
+        for row in range(len(self.matrix)):
+            if len(self.matrix[row]) != len(self.matrix[0]):
+                return True
+        return False
+ 
+ 
+def saddle_points(inp):
+    return SaddlePoints(inp).get_saddle_points()
 
