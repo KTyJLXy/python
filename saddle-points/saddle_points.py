@@ -1,4 +1,4 @@
-class SaddlePoints:
+pclass SaddlePoints:
     def __init__(self, matrix):
         self.matrix = matrix
         self.columns = list(zip(*self.matrix))

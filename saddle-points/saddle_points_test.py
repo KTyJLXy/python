@@ -1,3 +1,4 @@
+s
 """Tests for the saddle-points exercise
 
 Implementation note:
