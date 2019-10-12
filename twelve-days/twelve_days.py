@@ -1,35 +1,38 @@
+import re
+
+numbers = {
+    1: "first",
+    2: "second",
+    3: "third",
+    4: "fourth",
+    5: "fifth",
+    6: "sixth",
+    7: "seventh",
+    8: "eighth",
+    9: "ninth",
+    10: "tenth",
+    11: "eleventh",
+    12: "twelfth"
+}
+
+gifts = [
+    "twelve Drummers Drumming",
+    "eleven Pipers Piping",
+    "ten Lords-a-Leaping",
+    "nine Ladies Dancing",
+    "eight Maids-a-Milking",
+    "seven Swans-a-Swimming",
+    "six Geese-a-Laying",
+    "five Gold Rings",
+    "four Calling Birds",
+    "three French Hens",
+    "two Turtle Doves",
+    "and a Partridge in a Pear Tree"
+]
+
 def recite(start_verse, end_verse):
-    giftList = ["partridge in a pear tree",
-            "turtle doves",
-            "french hens",
-            "calling birds",
-            "gold rings",
-            "geese a laying",
-            "swans a swimming",
-            "maids a milking",
-            "ladies dancing",
-            "lords of leaping",
-            "pipers piping",
-            "drummers drumming"]
+    return [recite_verse(verse) for verse in range(start_verse, end_verse + 1)]
 
-    for day in range(start_verse,end_verse+1):
-        if day == 1:
-            verse = "On the " + str(day) + "st"
-        elif day == 2:
-            verse = "On the " + str(day) + "nd"
-        else:
-            verse = "On the " + str(day) + "th"
-
-    verse = verse + " day of Christmas my true love sent to me"
+def recite_verse(verse):
+    return f"On the {numbers[verse]} day of Christmas my true love gave to me: " + re.sub("^and ", "", ", ".join(gifts[12 - verse:12])) + "."
     
-    for giftNumber in range(day-1,-1,-1): #Looping through the list of gifts, in reverse order
-        if giftNumber==0:
-            if day==1:
-                verse += " a " + giftList[giftNumber] + "."
-            else:
-                verse = verse[:-1] # remove the last comma
-                verse += " and a " + giftList[giftNumber] + "."
-        else:
-            verse += " " + str(giftNumber+1) + " " + giftList[giftNumber] + ","
-    
-    return verse_list
